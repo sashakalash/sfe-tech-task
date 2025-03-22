@@ -17,6 +17,7 @@ export class UserFormPageComponent {
   private facade = inject(UsersFacadeService);
 
   user = this.facade.user;
+  loading = this.facade.loading;
 
   handleSave(user: Partial<User>) {
     this.facade.saveUser(user);

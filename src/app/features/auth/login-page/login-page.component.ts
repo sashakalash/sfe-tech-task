@@ -21,8 +21,6 @@ import { MatButton } from '@angular/material/button';
   styleUrl: './login-page.component.scss'
 })
 export class LoginPageComponent {
-  private authService: AuthService = inject(AuthService);
-  private router: Router = inject(Router);
   private fb: FormBuilder = inject(FormBuilder);
 
   error: WritableSignal<string> = signal('');
@@ -33,6 +31,5 @@ export class LoginPageComponent {
   });
 
   submit(): void {
-    // Implement the login logic here
   }
 }
