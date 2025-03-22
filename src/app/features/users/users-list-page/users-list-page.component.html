@@ -1,0 +1,7 @@
+<h2>Users</h2>
+<button mat-raised-button color="primary" (click)="goToNew()">Add User</button>
+
+<app-users-list
+  [users]="facade.users()"
+  (edit)="goToEdit($event)"
+/>
