@@ -1,59 +1,97 @@
-# SfeTechTask
+# 💪 SFE Tech Task
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 19.1.4.
+Welcome! This project is a small Angular-based application designed to assess your frontend skills with a realistic setup. It includes a backend built in Node.js with an in-memory database, and a frontend written in Angular 19 using the latest standalone and signal-based patterns.
 
-## Development server
+---
 
-To start a local development server, run:
+## ⚙️ Setup Instructions
+
+### 1. Clone the repository
 
 ```bash
+git clone <REPO_URL>
+cd sfe-tech-task
+```
+
+### 2. Start the Backend
+
+```bash
+cd backend
+npm install
+npm start
+```
+
+The backend will run on [http://localhost:3000](http://localhost:3000).
+
+### 3. Start the Frontend
+
+If you are still in the backend folder, go back to the root folder:
+
+```bash
+npm install
 ng serve
 ```
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+The frontend will run on [http://localhost:4200](http://localhost:4200).
 
-## Code scaffolding
+---
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+## ✅ What’s Already Implemented
 
-```bash
-ng generate component component-name
-```
+### 🔐 Auth
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+- A login page is scaffolded using Angular Material.
+- `AuthService.login()` is implemented and connects to the backend.
+- Backend API accepts hardcoded credentials (see `backend/db.js`).
 
-```bash
-ng generate --help
-```
+### 👥 User Management
 
-## Building
+- A working API for fetching, creating, and updating users exists.
+- Angular architecture follows best practices:
+  - **Dumb components** for UI
+  - **Smart container pages** for logic
+  - **Facade → Store → Service** pattern for state and API management
+- Routes:
+  - `/users` — user list
+  - `/users/create` — create user
+  - `/users/:id` — edit user
 
-To build the project run:
+---
 
-```bash
-ng build
-```
+## 🧐 Your Task
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
+Your goal is to complete the app’s functionality using Angular best practices.
 
-## Running unit tests
+### 🔐 Auth
 
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
+- Implement logic in `LoginPage` to store and share the token with other API calls.
+- Protect all `/users` routes from unauthorized access.
 
-```bash
-ng test
-```
+### 👥 Users
 
-## Running end-to-end tests
+- Make the user form fully functional for **creating and editing users**.
+- Add **form validation** (e.g., required fields, custom validators).
+- Display loading states and error messages as needed.
+- Fix any subtle bugs in the existing logic or API integration (if popping up, of course you don't need to touch backend).
 
-For end-to-end (e2e) testing, run:
+---
 
-```bash
-ng e2e
-```
+## ✨ Bonus Points
 
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
+These are optional but will showcase advanced skills:
 
-## Additional Resources
+- Add **unit tests**.
+- Improve **UI/UX**.
 
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+---
+
+## 📬 Submission
+
+1. **Fork** this repository to your own GitHub account.
+2. Complete the task in your forked repo.
+3. Send us the link to your fork when you're finished.
+
+---
+
+Good luck! We’re looking forward to seeing how you approach the challenge and what best practices you're going to introduce for us 🚀
+
