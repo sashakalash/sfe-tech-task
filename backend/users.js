@@ -18,11 +18,15 @@ router.get('/', (req, res) => {
   res.json(users.map(({ password, ...u }) => u));
 });
 
-router.post('/', (req, res) => {
+router.post('/create', (req, res) => {
   const { username, password, role } = req.body;
 
   if (users.find((u) => u.username === username)) {
     return res.status(400).json({ message: 'Username already exists' });
+  }
+
+  if (username?.includes('test')) {
+    return res.status(400).json({ message: 'Username must be a real name' });
   }
 
   const newUser = {

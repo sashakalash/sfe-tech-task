@@ -52,9 +52,9 @@ The frontend will run on [http://localhost:4200](http://localhost:4200).
   - **Smart container pages** for logic
   - **Facade → Store → Service** pattern for state and API management
 - Routes:
-  - `/users` — user list
-  - `/users/create` — create user
-  - `/users/:id` — edit user
+  - `GET /users` — user list
+  - `POST /users/create` — create user
+  - `PUT /users/:id` — edit user
 
 ---
 
@@ -70,7 +70,7 @@ Your goal is to complete the app’s functionality using Angular best practices.
 ### 👥 Users
 
 - Make the user form fully functional for **creating and editing users**.
-- Add **form validation** (e.g., required fields, custom validators).
+- Add **form validation** (e.g., required fields, custom validators). You might notice that there is a validation on the BE to not have **test** in the name, try to prevent sending those requests from the FE.
 - Display loading states and error messages as needed.
 - Fix any subtle bugs in the existing logic or API integration (if popping up, of course you don't need to touch backend).
 
