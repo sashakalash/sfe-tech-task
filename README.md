@@ -85,6 +85,15 @@ These are optional but will showcase advanced skills:
 
 ---
 
+## 🧹 Git Commit Guidelines
+
+- Start with an **initial empty commit** (e.g., `chore: start tech task`) when beginning your work.
+- Use **small, clear commits** to document your progress.
+- End with a **final commit** (e.g., `feat: complete tech task`) when you have finished.
+- We value **clean and readable Git history**!
+
+---
+
 ## 📬 Submission
 
 1. **Fork** this repository to your own GitHub account.
