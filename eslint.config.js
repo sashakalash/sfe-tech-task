@@ -242,6 +242,7 @@ module.exports = tseslint.config(
       ],
       "@typescript-eslint/unified-signatures": "error",
       "arrow-parens": ["warn", "as-needed"],
+      "block-spacing": "warn",
       "complexity": "off",
       "constructor-super": "error",
       "eqeqeq": ["error", "smart"],

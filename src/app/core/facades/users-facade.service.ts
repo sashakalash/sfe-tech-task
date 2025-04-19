@@ -16,15 +16,15 @@ export class UsersFacadeService {
   loadUsers(): void {
     this.store.setLoading(true);
     this.api.getUsers().subscribe({
-      next: users => {
+      next: (users) => {
         this.store.setUsers(users);
         this.store.setError('');
         this.store.setLoading(false);
       },
-      error: err => {
+      error: (_err) => {
         this.store.setError('Failed to load users');
         this.store.setLoading(false);
-      }
+      },
     });
   }
 
@@ -40,7 +40,7 @@ export class UsersFacadeService {
       error: () => {
         this.store.setError('Failed to save user');
         this.store.setLoading(false);
-      }
+      },
     });
   }
 }
