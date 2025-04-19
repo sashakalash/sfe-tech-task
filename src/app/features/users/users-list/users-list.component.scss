@@ -1,0 +1,11 @@
+table {
+  margin-top: 10px;
+  width: 50%;
+
+  mat-icon {
+    cursor: pointer;
+    &:hover {
+      color: #c0b8b8;
+    }
+  }
+}

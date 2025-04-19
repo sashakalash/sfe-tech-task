@@ -1,5 +1,5 @@
 import { Injectable, signal } from '@angular/core';
-import { User } from '../../shared/models/user';
+import { User } from '@shared/models/user';
 
 @Injectable({ providedIn: 'root' })
 export class UserStore {
@@ -26,7 +26,7 @@ export class UserStore {
 
   upsertUser(user: User) {
     const current = this.users();
-    const index = current.findIndex(u => u.id === user.id);
+    const index = current.findIndex((u) => u.id === user.id);
     if (index === -1) {
       this.users.set([...current, user]);
     } else {

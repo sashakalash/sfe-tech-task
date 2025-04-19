@@ -1,11 +1,12 @@
 <h2>Users</h2>
 <button mat-raised-button color="primary" (click)="goToNew()">Add User</button>
 
-@if (!facade.loading()) {
-  <app-users-list
-    [users]="facade.users()"
-    (edit)="goToEdit($event)"
-  />
+@if (!loading()) {
+  <app-users-list [users]="users()" (edit)="goToEdit($event)" />
 } @else {
-  <p>Loading...</p>
+  <mat-spinner></mat-spinner>
+}
+
+@if (error()) {
+  <p>{{ error() }}</p>
 }

@@ -1,8 +1,6 @@
 import { Component, inject, signal, WritableSignal } from '@angular/core';
 import {
-  MatError,
   MatFormField,
-  MatInput,
   MatInputModule,
   MatLabel,
 } from '@angular/material/input';
@@ -11,7 +9,8 @@ import { FormBuilder, ReactiveFormsModule, Validators } from '@angular/forms';
 import { MatButton } from '@angular/material/button';
 import { HttpErrorResponse } from '@angular/common/http';
 import { Router } from '@angular/router';
-import { AuthService } from '../../../core/services/auth.service';
+
+import { AuthService } from '@core/services/auth.service';
 
 @Component({
   selector: 'app-login-page',

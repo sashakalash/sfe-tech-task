@@ -3,7 +3,7 @@ import { HttpClient } from '@angular/common/http';
 import { Observable, ReplaySubject, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
-import { AuthResponse } from '../../shared/models/auth';
+import { AuthResponse } from '@shared/models/auth';
 
 const TOKEN_KEY = 'auth-token';
 

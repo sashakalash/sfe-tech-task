@@ -1,9 +1,10 @@
 import { inject, Injectable } from '@angular/core';
-import { UserStore } from '../stores/users.store';
-import { UsersService } from '../services/users.service';
-import { User } from '../../shared/models/user';
 
-@Injectable({ providedIn: 'root' })
+import { UserStore } from '@core/stores/users.store';
+import { UsersService } from '@core/services/users.service';
+import { User } from '@shared/models/user';
+
+@Injectable()
 export class UsersFacadeService {
   private store = inject(UserStore);
   private api = inject(UsersService);
