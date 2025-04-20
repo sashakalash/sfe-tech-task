@@ -16,7 +16,8 @@ export class UsersListComponent {
 
   edit: OutputEmitterRef<number> = output();
 
-  editUser(id: number): void {
+  editUser(e: Event, id: number): void {
+    e.stopPropagation();
     this.edit.emit(id);
   }
 }

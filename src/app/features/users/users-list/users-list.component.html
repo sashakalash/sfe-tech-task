@@ -16,16 +16,12 @@
     <ng-container matColumnDef="actions">
       <th mat-header-cell *matHeaderCellDef></th>
       <td mat-cell *matCellDef="let element">
-        <mat-icon (click)="editUser(element.id)">edit</mat-icon>
+        <mat-icon (click)="editUser($event, element.id)">edit</mat-icon>
       </td>
     </ng-container>
 
     <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-    <tr
-      mat-row
-      *matRowDef="let row; columns: displayedColumns"
-      (click)="editUser(row.id)"
-    ></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns"></tr>
   </table>
 } @else {
   <p>User list is empty</p>

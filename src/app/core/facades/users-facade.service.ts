@@ -3,6 +3,7 @@ import { inject, Injectable } from '@angular/core';
 import { UserStore } from '@core/stores/users.store';
 import { UsersService } from '@core/services/users.service';
 import { User } from '@shared/models/user';
+import { HttpErrorResponse } from '@angular/common/http';
 
 @Injectable()
 export class UsersFacadeService {
@@ -13,6 +14,7 @@ export class UsersFacadeService {
   user = this.store.user.asReadonly();
   loading = this.store.loading.asReadonly();
   error = this.store.error.asReadonly();
+  success = this.store.success.asReadonly();
 
   loadUsers(): void {
     this.store.setLoading(true);
@@ -37,11 +39,32 @@ export class UsersFacadeService {
       next: (saved) => {
         this.store.upsertUser(saved);
         this.store.setLoading(false);
+        this.store.setSuccess(true);
       },
-      error: () => {
-        this.store.setError('Failed to save user');
+      error: (err: HttpErrorResponse) => {
+        this.store.setError(`Failed to save user: ${err?.error?.message}`);
         this.store.setLoading(false);
+        this.store.setSuccess(false);
       },
     });
+  }
+
+  setUser(id: number): void {
+    const user = this.users().find((u) => u.id === id);
+    if (user) {
+      this.store.setUser(user);
+    }
+  }
+
+  clearUser(): void {
+    this.store.setUser(null);
+  }
+
+  setSuccessStatus(value: boolean): void {
+    this.store.setSuccess(value);
+  }
+
+  removeSuccessStatus(): void {
+    this.store.setSuccess(null);
   }
 }

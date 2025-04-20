@@ -12,17 +12,15 @@ export const tokenInterceptor: HttpInterceptorFn = (
   req: HttpRequest<unknown>,
   next: HttpHandlerFn
 ) => {
-  if (typeof window !== 'undefined') {
-    const authService = inject(AuthService);
-    const router = inject(Router);
-    const token = authService.getAccessToken();
-    if (token) {
-      const cloned = req.clone({
-        headers: req.headers.set('Authorization', `Bearer ${token}`),
-      });
-      return next(cloned);
-    }
-    router.navigate(['auth']);
+  const authService = inject(AuthService);
+  const router = inject(Router);
+  const token = authService.getAccessToken();
+  if (token) {
+    const cloned = req.clone({
+      headers: req.headers.set('Authorization', `Bearer ${token}`),
+    });
+    return next(cloned);
   }
+  router.navigate(['auth']);
   return next(req);
 };

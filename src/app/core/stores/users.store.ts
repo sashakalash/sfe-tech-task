@@ -7,24 +7,32 @@ export class UserStore {
   user = signal<User | null>(null);
   loading = signal(false);
   error = signal('');
+  success = signal<boolean | null>(null);
 
-  setUsers(newUsers: User[]) {
+  setUsers(newUsers: User[]): void {
     this.users.set(newUsers);
   }
 
-  setUser(newUser: User) {
+  setUser(newUser: User | null): void {
     this.user.set(newUser);
   }
 
-  setLoading(value: boolean) {
+  setLoading(value: boolean): void {
     this.loading.set(value);
   }
 
-  setError(message: string) {
+  setSuccess(value: boolean | null): void {
+    this.success.set(value);
+  }
+
+  setError(message: string): void {
+    if (this.error() === message) {
+      this.error.set('');
+    }
     this.error.set(message);
   }
 
-  upsertUser(user: User) {
+  upsertUser(user: User): void {
     const current = this.users();
     const index = current.findIndex((u) => u.id === user.id);
     if (index === -1) {
@@ -34,5 +42,6 @@ export class UserStore {
       updated[index] = user;
       this.users.set(updated);
     }
+    this.user.set(user);
   }
 }
