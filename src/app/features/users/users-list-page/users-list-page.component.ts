@@ -17,7 +17,7 @@ import { SNACK_BAR_DEFAULT_OPTIONS } from '@app/shared/configs/mat-snack-bar.con
   providers: [UsersFacadeService, UsersService],
 })
 export class UsersListPageComponent implements OnInit {
-  facade = inject(UsersFacadeService);
+  private facade = inject(UsersFacadeService);
   private snackBar = inject(MatSnackBar);
 
   router = inject(Router);

@@ -64,7 +64,7 @@ export class UserFormComponent {
   submit(): void {
     if (this.form.valid) {
       const userData = { ...this.user(), ...this.form.value };
-      this.save.emit(userData as Partial<User>);
+      this.save.emit(userData);
     }
   }
 }

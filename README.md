@@ -104,3 +104,24 @@ These are optional but will showcase advanced skills:
 
 Good luck! We’re looking forward to seeing how you approach the challenge and what best practices you're going to introduce for us 🚀
 
+---
+
+## 📬 Solution
+
+## ⚙️ Optimizations & Improvements
+
+- Removed `UserService` and `UsersFacadeService` from the root injector scope. Their availability is now limited to the components that actually use them, improving modularity and reducing unnecessary memory usage.
+- Optimized UX flow for creating and saving a user: now, the user is only redirected back to the user list page if the request completes successfully. In case of failure, the user stays on the same page for better error handling and retry opportunities.
+- Enhanced the error handling UX by replacing inline error messages with toast notifications, following best practices for cleaner and more user-friendly feedback.
+- Added unit tests for the most critical parts of the application to ensure stability and prevent regressions.
+
+## 🧪 Test Coverage
+
+| Metric     | Coverage         |
+| ---------- | ---------------- |
+| Statements | 82.95% (146/176) |
+| Branches   | 60% (15/25)      |
+| Functions  | 69.38% (34/49)   |
+| Lines      | 83.13% (138/166) |
+
+> Generated using `ng test --code-coverage`
