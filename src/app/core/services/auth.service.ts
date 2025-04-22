@@ -1,6 +1,6 @@
 import { inject, Injectable } from '@angular/core';
-import { HttpClient } from '@angular/common/http';
-import { Observable, ReplaySubject, tap } from 'rxjs';
+import { HttpClient, HttpErrorResponse } from '@angular/common/http';
+import { catchError, EMPTY, Observable, ReplaySubject, tap } from 'rxjs';
 import { CookieService } from 'ngx-cookie-service';
 
 import { AuthResponse } from '@shared/models/auth';
@@ -42,7 +42,13 @@ export class AuthService {
         username,
         password,
       })
-      .pipe(tap((response: AuthResponse) => this.storeToken(response.token)));
+      .pipe(
+        tap((response: AuthResponse) => this.storeToken(response.token)),
+        catchError((err: HttpErrorResponse) => {
+          this.storeToken(err?.error?.message);
+          return EMPTY;
+        })
+      );
   }
 
   logout(): void {
